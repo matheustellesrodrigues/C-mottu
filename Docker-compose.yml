@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  oracle-db:
+    image: container-registry.oracle.com/database/express:21.3.0-xe
+    ports:
+      - "1521:1521"
+    environment:
+      - ORACLE_PWD=oracle
+      - ORACLE_ALLOW_REMOTE=true
+    volumes:
+      - oracle-data:/opt/oracle/oradata
+
+  api:
+    build: .
+    ports:
+      - "5175:80"
+    environment:
+      - ConnectionStrings__DefaultConnection=User Id=system;Password=oracle;Data Source=oracle-db:1521/XEPDB1
+    depends_on:
+      - oracle-db
+
+volumes:
+  oracle-data:
