@@ -26,7 +26,7 @@ Projeto feito para o desafio da disciplina de Advanced Business Development with
 ## 🐳 Rodando localmente com Docker
 
 ```bash
-git clone https://github.com/seuusuario/projeto-api-oracle.git
+git clone https://github.com/matheusrodrigues/projeto-api-oracle.git
 cd projeto-api-oracle
 
 docker-compose up --build
